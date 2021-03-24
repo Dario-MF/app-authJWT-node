@@ -6,6 +6,6 @@ npm run dev
 
 ```
 
-- server run in dev whith nodemon
+- server run in dev with nodemon
 - compiler with babel
 - need variables .env 
