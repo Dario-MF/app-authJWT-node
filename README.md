@@ -1,8 +1,9 @@
 # Server REST API, auth with JWT
 
-````
+```
 npm install
 npm run dev
+
 ```
 
 - server run in dev whith nodemon
