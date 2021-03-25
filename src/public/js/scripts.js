@@ -40,5 +40,4 @@ form.addEventListener('submit', (e)=> {
         .then(res => res.json())
         .then(res => saveLocalStorage(res.token))
         .catch(err => console.log(err));
-    console.log(localStorage.getItem('token'))
 });
