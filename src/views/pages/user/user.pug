@@ -1,0 +1,39 @@
+extends ../../config/template
+append config
+  -pageTitle = 'Dario MF'
+  -descripcion = 'Front-end Developer'
+  
+block main
+  include ../../includes/header
+  .container.h-100
+    .row.align-middle
+      .col-md-6.col-lg-4.column
+        .card.gr-1
+          .txt
+            h1
+              | MARCA Y
+              br
+              | DISEÑO CORPORATIVO
+            p Comunicación visual y resolución de problemas
+          .ico-card
+            i.fa.fa-rebel
+      .col-md-6.col-lg-4.column
+        .card.gr-2
+          .txt
+            h1
+              | Web Front-End 
+              br
+              | DEVELOPER
+            p Cómo se implementa el diseño en la web.
+          .ico-card
+            i.fa.fa-codepen
+      .col-md-6.col-lg-4.column
+        .card.gr-3
+          .txt
+            h1
+              | UX/UI DISEÑO WEB 
+              br
+              | Y APP MÓVIL
+            p Diseño de interfaz de usuario y experiencia de usuario.
+          .ico-card
+            i.fa.fa-empire

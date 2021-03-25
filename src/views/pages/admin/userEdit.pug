@@ -1,0 +1,17 @@
+extends ../../config/template
+append config
+  -pageTitle = 'Actualizar Cliente'
+  -descripcion = 'Actualice los datos de ' + cliente.nombre + ' ' + cliente.apellidos
+  -headerImgPath = '/img/pcBanner5.jpg'
+  -formPath = '/client/update/'+ cliente.id
+  -formBtn = 'Editar'
+  -nombre= cliente.nombre
+  -apellidos= cliente.apellidos
+  -email= cliente.email
+  -telefono= cliente.telefono
+  -newsletter= cliente.newsletter 
+  -condiciones= cliente.condiciones
+  
+block main
+  include ../../includes/header
+  include ../../includes/formulario  

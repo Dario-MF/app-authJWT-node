@@ -31,3 +31,13 @@ export const isTokenValid = async ( req, res, next ) => {
     req.user = user;
     next();
 };
+
+export const hasToken = (req, res, next) => {
+    const token = req.headers['x-token'];
+    if(!token){
+        req.user = {rol: 'invited'};  
+    }else{
+        isTokenValid
+    }
+    next();
+};

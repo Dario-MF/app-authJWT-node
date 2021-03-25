@@ -5,7 +5,9 @@ import path from 'path'
 import config from './config'
 import { createRoles } from './libs/initialSetup';
 
-import homeRoute from'./routes/home.route';
+import homeRoute from './routes/home.route';
+import userRoute from './routes/user.route';
+import adminRoute from './routes/admin.route';
 import authRoute from './routes/auth.route';
 
 
@@ -21,10 +23,13 @@ app.set('views', path.resolve(__dirname + '/views'));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static('public'));
+app.use(express.static('src/public'));
 
 // Routes page
 app.use('/', homeRoute);
+app.use('/user', userRoute);
+app.use('/admin', adminRoute);
+
 
 // Routes api
 app.use('/api/auth', authRoute);

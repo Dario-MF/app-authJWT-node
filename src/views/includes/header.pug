@@ -1,0 +1,12 @@
+
+// Header
+.header 
+    .inner-header
+        h1 #{pageTitle}
+        p #{descripcion}
+
+//- Styles dinamicos
+style. 
+    .header::before {
+        background-image: url(#{headerImgPath})
+    }

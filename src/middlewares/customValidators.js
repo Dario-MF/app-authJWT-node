@@ -11,15 +11,13 @@ export const isEmailUnique = async (email = '') => {
     };
 };
 
-
 // validar si el id existe en la DB.
-export const userIdExist = async( id ) => {
+export const userIdExist = async( id = '' ) => {
     const userExist = await User.findById( id );
     if (!userExist) {
         throw new Error(`user with id: ${id}, not exist`);
     };
 };
-
 
 // retornar errores
 export const validateParams = (req, res, next)=> {

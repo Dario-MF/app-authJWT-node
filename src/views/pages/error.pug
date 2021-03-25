@@ -1,0 +1,11 @@
+extends ../config/template
+append config
+  -pageTitle = status
+  -descripcion= message
+  -headerImgPath = '/img/err404.jpg'
+  
+block main
+  .container-error
+    h1= status
+    h2= message
+    pre= error

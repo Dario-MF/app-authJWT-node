@@ -1,0 +1,38 @@
+
+// Formulario
+form.row.g-3.formClient(action= formPath, method='post')
+    .col-md-6
+        label.form-label(for='inputName') Nombre
+        input#inputEmail4.form-control(type='text', placeholder='Ingrese su Nombre', name="nombre", value= nombre, required)
+    .col-md-6
+        label.form-label(for='inputSurname') Apellidos
+        input#inputPassword4.form-control(type='text', placeholder='Ingrese sus Apellidos', name="apellidos", value= apellidos, required)
+    .col-md-6.mt-4
+        label.form-label(for='inputEmai') Correo electrónico
+        input#inputEmai.form-control(type='email', placeholder='Ingrese su Email', name="email", value= email, required)
+    .col-md-6.mt-4
+        label.form-label(for='inputTelefone') Telefono 
+        input#inputTelefone.form-control(type='tel', placeholder='Ingrese su Nombre', name="telefono", value= telefono, required)    
+    .col-12.mt-4
+        .form-check
+            input#checkNewsletter.form-check-input(type='checkbox', name="newsletter")
+            label.form-check-label(for='checkNewsletter') Suscripción newsletter?
+    .col-12.mt-4
+        .form-check
+            input#checkConditions.form-check-input(type='checkbox', name="condiciones", required)
+            label.form-check-label(for='checkConditions') Aceptar condiciones
+    .col-12.mt-4
+        button.btn.btn-block.btn-primary(type='submit') #{formBtn}
+
+//- Scripts para activar checkbox dinamico
+script. 
+    const news= #{newsletter};
+    const conditions= #{condiciones};
+    
+    if (news === true){
+        document.getElementById('checkNewsletter').checked = true;
+    };
+        
+    if (conditions === true){
+        document.getElementById('checkConditions').checked = true;
+    };

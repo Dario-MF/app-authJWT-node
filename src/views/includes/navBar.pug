@@ -1,0 +1,14 @@
+
+
+// Navbar
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    .container-fluid
+        a.navbar-brand(href='/main/index') Barra de navegación
+        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+            ul.navbar-nav
+                //- Creacion de pestañas por variable pug, activacion mediante script
+                each page in pages 
+                    li.nav-item
+                        a.nav-link(href=page.link)=page.name 

@@ -1,0 +1,18 @@
+
+
+// Formulario sign up
+form.row.g-3.formClient#formSignUp
+    .col-md-6
+        label.form-label(for='inputName') Nombre
+        input#inputEmail4.form-control(type='text', placeholder='Ingrese su Nombre', name="name", value= name, required)
+    .col-md-6
+        label.form-label(for='inputSurname') Apellidos
+        input#inputPassword4.form-control(type='text', placeholder='Ingrese sus Apellidos', name="surname", value= surname, required)
+    .col-md-6.mt-4
+        label.form-label(for='inputEmai') Correo electrónico
+        input#inputEmai.form-control(type='email', placeholder='Ingrese su Email', name="email", value= email, required)
+    .col-md-6.mt-4
+        label.form-label(for='inputPassword') Password
+        input#inputPassword.form-control(type='password', placeholder='Ingrese su Contraseña', name="password", value= password, required)
+    .col-12.mt-4
+        button.btn.btn-block.btn-primary(type='submit') #{formBtn}

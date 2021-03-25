@@ -1,13 +1,20 @@
 import { Router } from 'express';
-import { isTokenValid } from '../middlewares/authJwt'
-import { isAdminRole } from '../middlewares/validRole';
+import { homeCtrl, signinCtrl, signupCtrl } from '../controllers/home.controller';
+import { hasToken } from '../middlewares/authJwt';
+
 
 const router = Router();
 
-router.get('/',[ isTokenValid, isAdminRole ], (req, res)=> {
-    res.json({
-        msg: 'ruta al home OK'
-    })
-});
+router.get('/', [
+    hasToken
+], homeCtrl);
+
+router.get('/signin', [
+    hasToken
+], signinCtrl);
+
+router.get('/signup', [
+    hasToken
+], signupCtrl);
 
 export default router

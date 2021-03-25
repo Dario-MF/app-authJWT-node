@@ -1,0 +1,34 @@
+extends ../../config/template
+append config
+  -pageTitle = 'Listado de clientes'
+  -descripcion = 'Gestión de la cartera de clientes'
+  -headerImgPath = '/img/pcBanner4.jpg'
+  
+block main
+  include ../../includes/header
+  .block-clients 
+    table.table 
+        thead 
+          tr
+            th Nombre
+            th Apellidos
+            th Email
+            th Telefono
+            th Newsletter
+            th Condiciones
+            th Acciones
+        tbody
+          each cliente in clientes
+            tr 
+              td= cliente.nombre
+              td= cliente.apellidos
+              td= cliente.email
+              td= cliente.telefono
+              td= cliente.newsletter ? 'Si' : 'No'
+              td= cliente.condiciones ? 'Si' : 'No'
+              td  
+                a.btn.btn-sm.btn-info(href='/client/editar/' + cliente.id) Editar
+                a.btn.btn-sm.btn-danger.ml-2(href='/client/delete/' + cliente.id, onClick='return confirm("El cliente se eliminara ¿Esta seguro?")') Eliminar
+          else 
+            tr
+              td No hay clientes en la base de datos
