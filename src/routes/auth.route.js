@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
 import { isEmailUnique, validateParams } from '../middlewares/customValidators';
+import { isValidRole } from '../middlewares/validRole';
 import * as authCtrl from '../controllers/auth.controller';
 
 const router = Router();
@@ -23,6 +24,7 @@ router.post('/signup', [
         .withMessage("password can contain max 20 characters")
         .matches(/\d/)
         .withMessage('password must contain a number'),
+    isValidRole,
     validateParams
 ], authCtrl.signUp);
 

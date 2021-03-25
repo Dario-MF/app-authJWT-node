@@ -1,26 +1,18 @@
 import jwt from 'jsonwebtoken';
-
 import User from '../models/User';
-import Role from '../models/Role';
 import config from '../config';
 
 
 
 export const signUp = async (req, res)=> {
-    const {name, surname, email, password, roles} = req.body;
+    const {name, surname, email, password, idRoles} = req.body;
     const newUser = new User({
         name,
         surname,
         email,
+        roles: idRoles,
         password: await User.ecryptPassword(password)
     });
-    if( roles ){
-        const foundRoles = await Role.find({ name: {$in: roles}});
-        newUser.roles = foundRoles.map(rol => rol._id);
-    }else{
-        const role = await Role.findOne({ name: 'USER_ROLE' });
-        newUser.roles = [ role._id ];
-    }; 
     const savedUser = await newUser.save();
     const token = jwt.sign({uid: savedUser._id}, config.SECRET, {
         expiresIn: 86400 //24horas

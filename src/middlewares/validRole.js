@@ -20,8 +20,6 @@ export const isAdminRole = async( req, res, next ) => {
     }); 
 };
 
-
-
 // Filtro rol ventas.
 export const isVentasRole = async( req, res, next ) => {
     if ( !req.user ) {
@@ -38,4 +36,23 @@ export const isVentasRole = async( req, res, next ) => {
     return res.status(403).json({
         msg: 'Forbidden, access denied: role valid required.'
     });
+};
+
+// Filtro, si no hay rol se usa user predefinido, si hay se comprueban.
+export const isValidRole = async (req, res, next ) => {
+
+    if( !req.body.roles || !req.body.roles.length ){
+        const role = await Role.findOne({ name: 'USER_ROLE' });
+        req.body.idRoles = [role._id];
+
+    }else{
+        const roles = await Role.find({ name: { $in: req.body.roles } });
+        if(!roles.length){
+            return res.status(400).json({
+                msg: 'Invalid role'
+            });
+        };
+        req.body.idRoles = roles.map(rol => rol._id); 
+    };
+    next();
 };
